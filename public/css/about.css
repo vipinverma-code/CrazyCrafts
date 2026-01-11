@@ -1,0 +1,64 @@
+/* ===== Our Story Header ===== */
+.our-story {
+    background: rgb(53,113,133);
+    color: #fff;
+    padding: 80px 0;
+}
+
+.our-story h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.our-story .subtitle {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ===== Story Content ===== */
+.story-content {
+    background: rgb(236,224,196);
+    padding: 80px 0;
+}
+
+.story-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.story-content .quote {
+    font-style: italic;
+    color: rgb(53,113,133);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* ===== Mission Section ===== */
+.our-mission {
+    background: #fff;
+    padding: 80px 0;
+}
+
+.our-mission h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: rgb(53,113,133);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .our-story h1 {
+        font-size: 32px;
+    }
+
+    .our-mission h2 {
+        font-size: 28px;
+    }
+
+    .story-content,
+    .our-mission {
+        padding: 50px 0;
+    }
+}

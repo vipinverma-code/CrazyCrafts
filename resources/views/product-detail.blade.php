@@ -10,13 +10,14 @@
 
             <!-- LEFT IMAGE SIDE -->
             <div class="col-md-6 text-center">
-                <img src="{{ $product['image'] }}" class="main-product-img">
+                <img src="{{ asset($product['image']) }}" class="main-product-img">
 
                 <div class="thumb-row mt-3">
-                    <img src="{{ $product['image'] }}" class="thumb-img">
-                    <img src="{{ $product['image'] }}" class="thumb-img">
-                    <img src="{{ $product['image'] }}" class="thumb-img">
+                    <img src="{{ asset($product['image']) }}" class="thumb-img">
+                    <img src="{{ asset($product['image']) }}" class="thumb-img">
+                    <img src="{{ asset($product['image']) }}" class="thumb-img">
                 </div>
+
             </div>
 
             <!-- RIGHT DETAILS -->
@@ -87,9 +88,10 @@
                     <input type="hidden" name="name" value="{{ $product['name'] }}">
                     <input type="hidden" name="price" value="{{ $product['price'] }}">
                     <input type="hidden" name="image" value="{{ $product['image'] }}">
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary d-block text-start ms-0 me-auto">
                         Add to Cart
                     </button>
+
                 </form>
 
 
@@ -121,4 +123,11 @@
         </div>
 
     </div>
+    <script>
+        document.querySelectorAll('.thumb-img').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                document.querySelector('.main-product-img').src = this.src;
+            });
+        });
+    </script>
 @endsection

@@ -7,7 +7,7 @@
             Explore our range of handcrafted treasures, from terracotta pottery to handwoven textiles.
         </p>
     </div> --}}
-    <div class="shop-hero-section text-center">
+    <div class="shop-hero-section text-center" >
         <h1 class="shop-title">Our Collection</h1>
         <p class="shop-subtitle">
             Explore our range of handcrafted treasures, from terracotta pottery to handwoven textiles.
@@ -58,7 +58,7 @@
                                     View
                                 </a>
 
-                            
+
                             </div>
 
                         </div>

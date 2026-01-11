@@ -25,7 +25,7 @@ class ShopController extends Controller
             );
         }
 
-        $categories = ["All", "Pottery", "Textiles", "Jewelry", "Home Decor", "Stationery"];
+        $categories = ["All", "Varmala", "Ring Platter", "Wedding Platter", "Rakhi", "Design Art"];
 
         return view('shop', [
             "products" => $products,

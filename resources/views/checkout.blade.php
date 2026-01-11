@@ -65,9 +65,20 @@
                                     placeholder="House No, Street, City, State, Pincode"></textarea>
 
                             </div>
+                            <div class="mb-4 payment-box">
+                                <label class="fw-semibold d-block mb-2">Payment Method</label>
+
+                                <div class="payment-option">
+                                    <input type="radio" name="payment_method" value="cod" checked>
+                                    <div>
+                                        <strong>Cash on Delivery</strong>
+                                        <p>Pay in cash when your order is delivered</p>
+                                    </div>
+                                </div>
+                            </div>
 
                             <button type="submit" class="btn w-100" style="background:#b54a24;color:white;font-size:18px">
-                                Pay ₹{{ $total }}
+                                Place Order
                             </button>
 
                         </form>

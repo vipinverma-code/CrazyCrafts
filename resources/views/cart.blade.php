@@ -106,7 +106,7 @@
                             <h5>₹{{ $total }}</h5>
                         </div>
 
-                        <a href="/checkout" class="btn btn-primary w-100 mt-3">
+                        <a href="/checkout" class="btn btn-primary w-100 mt-3" style="margin-left: 11px">
                             Proceed to Checkout
                         </a>
 

@@ -3,9 +3,11 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crazy Crafts</title>
+    <title>craftedbyheart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/product-detail.css') }}">
+
 
     <style>
         :root {
@@ -21,32 +23,123 @@
             font-family: 'Segoe UI', sans-serif;
         }
 
-        .navbar {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
-            padding: 18px;
+        /* Navbar brand spacing */
+        .navbar-brand {
+            padding: 0;
+            display: flex;
+            align-items: center;
         }
 
+        /* Logo sizing */
+        .navbar-brand-item {
+            height: 85px;
+            /* PERFECT navbar height */
+            width: auto;
+            /* aspect ratio safe */
+            object-fit: contain;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 991px) {
+            .navbar-brand-item {
+                height: 85px;
+            }
+        }
+
+
+        /* NAVBAR SPACING & BOLDNESS */
+
+        /* Left shift + spacing control */
+        .navbar-nav {
+            gap: 25px;
+            /* items ke beech space */
+            margin-right: 15px;
+            /* poora menu thoda left */
+        }
+
+        /* Nav links default look */
+        .navbar .nav-link {
+            font-weight: 500;
+            color: #222;
+            transition: all 0.3s ease;
+            padding: 6px 4px;
+            /* tight & clean */
+        }
+
+        /* Hover effect → bold */
+        .navbar .nav-link:hover {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Active link (Our Story page etc.) */
+        .navbar .nav-link.active {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+
         /* ---------- HERO SECTION ---------- */
+        .hero-image-wrapper {
+            display: inline-block;
+            padding: 18px;
+            background: linear-gradient(135deg, #f4eadb, #efe1cf);
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(109, 106, 106, 0.15);
+            transform: translateX(-40px);
+            /* LEFT SHIFT */
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+
+        /* Mobile fix */
+        @media (max-width: 768px) {
+            .hero-image-wrapper {
+                transform: translateX(0);
+                padding: 12px;
+            }
+
+            .hero-image-wrapper img {
+                max-width: 100%;
+            }
+        }
+
         .hero {
             background: linear-gradient(to right, var(--secondary), white);
             padding: 80px 10px;
-            border-radius: 0 0 60px 60px;
+            border-radius: 40 0 60px 60px;
         }
 
         .hero h1 {
             font-size: 55px;
             font-weight: 800;
             color: #222;
+            margin-left: 90px;
+            position: relative;
+            top: -25px;
+
+        }
+
+        .hero .col-md-6.text-center img {
+            margin-left: 160px;
+            /* 👈 right shift */
         }
 
         .hero span {
             color: var(--primary);
+
         }
 
         .hero p {
             max-width: 550px;
             color: #555;
+            margin-left: 90px;
+            top: -15px;
         }
 
         .btn-primary {
@@ -54,6 +147,7 @@
             border: none;
             padding: 12px 25px;
             border-radius: 30px;
+            margin-left: 90px;
         }
 
         .btn-outline {
@@ -61,6 +155,7 @@
             padding: 12px 25px;
             border-radius: 30px;
             color: var(--primary);
+            margin-left: 42px;
         }
 
         /* ---------- FEATURES SECTION ---------- */
@@ -158,12 +253,78 @@
         }
 
         /* ---------- STORY SECTION ---------- */
-        .story-section {
-            background: var(--primary);
-            color: white;
+
+        .our-story {
+            background: rgb(97, 134, 147);
+            color: #fff;
             padding: 80px 0;
-            border-radius: 40px;
         }
+
+        .our-story h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .our-story .subtitle {
+            margin-top: 10px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* ===== Story Content ===== */
+        .story-content {
+            background: rgb(236, 224, 196);
+            padding: 80px 0;
+        }
+
+        .story-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .story-content .quote {
+            font-style: italic;
+            color: rgb(53, 113, 133);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Mission Section ===== */
+        .our-mission {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .our-mission h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: rgb(53, 113, 133);
+        }
+
+
+        .img-fluid {
+            max-width: 100%;
+            height: 325px;
+
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .our-story h1 {
+                font-size: 32px;
+            }
+
+            .our-mission h2 {
+                font-size: 28px;
+            }
+
+            .story-content,
+            .our-mission {
+                padding: 50px 0;
+            }
+        }
+
 
         /* ---------- FOOTER ---------- */
         .footer {
@@ -338,6 +499,7 @@
 
             .shop-subtitle {
                 font-size: 14px;
+
             }
 
             .product-detail-wrapper {
@@ -519,16 +681,49 @@
             font-size: 16px;
             margin-top: 5px;
         }
+
+        /* OUR STORY PAGE CSS */
+
+        /* OUR STORY PAGE */
+
+
+        .payment-box {
+            margin-bottom: 25px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background: #f9f9f9;
+        }
+
+        .payment-option p {
+            margin: 2px 0 0;
+            font-size: 13px;
+            color: #666;
+        }
     </style>
+    @stack('styles')
 
 </head>
 
 <body>
 
 
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <h3 class="fw-bold" style="color:var(--primary)">Crazy Crafts</h3>
+            <!-- Logo -->
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img class="light-mode-item navbar-brand-item" src="{{ asset('assets/images/about/logo2.png') }}"
+                    alt="Crafted By Heart" >
+            </a>
+
+            <h3 class="fw-bold" style="color:var(--primary)">craftedbyheart</h3>
 
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
                 <span class="navbar-toggler-icon"></span>
@@ -539,8 +734,17 @@
 
                     <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="/shop" class="nav-link">Shop</a></li>
-                    <li class="nav-item"><a href="/our-story" class="nav-link">Our Story</a></li>
-                    <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <a href="{{ route('our.story') }}"
+                            class="nav-link {{ request()->routeIs('our.story') ? 'active' : '' }}">
+                            Our Story
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('contact') }}" class="nav-link">Contact</a>
+                    </li>
+
 
 
                     <li class="nav-item ms-3">
@@ -568,7 +772,7 @@
     @yield('content')
 
     <footer class="footer text-center">
-        <h4 style="color:var(--primary)">Crazy Crafts</h4>
+        <h4 style="color:var(--primary)">craftedbyheart</h4>
         <p>Premium Craft Materials | Made with Creativity</p>
 
         <div class="d-flex justify-content-center gap-4">
@@ -591,19 +795,19 @@
 
         </div>
 
-        <p class="mt-3">© 2026 Crazy Crafts. All Rights Reserved.</p>
+        <p class="mt-3">© 2026 craftedbyheart. All Rights Reserved.</p>
 
     </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    @if (session('success'))
+    {{-- @if (session('success'))
         <div class="alert alert-success position-fixed bottom-0 end-0 m-3">
             {{ session('success') }}
         </div>
-    @endif
+    @endif --}}
 
-    <a href="https://wa.me/9721851467?text=Hi%20I%20need%20help%20regarding%20Crazy%20Crafts%20Products"
+    <a href="https://wa.me/7355953598?text=Hello%20👋%0AI’m%20interested%20in%20crafted%20by%20heart%20❤️%0A%0AI%20loved%20your%20handcrafted%20products%20and%20would%20like%20to%20know%20more%20details%20about%20pricing,%20customization,%20and%20delivery.%0APlease%20guide%20me.%20😊"
         class="whatsapp-float" target="_blank">
 
         <div class="help-badge">

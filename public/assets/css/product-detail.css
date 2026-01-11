@@ -1,0 +1,38 @@
+/* Product Detail Page Styles */
+
+.product-detail-wrapper {
+    margin-bottom: 60px;
+}
+
+/* Main product image */
+.main-product-img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Thumbnail row */
+.thumb-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Thumbnail image */
+.thumb-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover zoom effect */
+.thumb-img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 2;
+}

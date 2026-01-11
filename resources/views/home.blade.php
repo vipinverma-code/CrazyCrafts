@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,13 +17,15 @@
                 <a href="{{ route('shop') }}" class="btn btn-primary mt-2">
                     Shop Collection
                 </a>
-                <button class="btn btn-outline mt-2">Our Story</button>
+                <a href="{{ route('our.story') }}" class="btn btn-outline mt-2">
+                    Our Story
+                </a>
 
             </div>
 
             <div class="col-md-6 text-center">
-                <img src="https://images.pexels.com/photos/279953/pexels-photo-279953.jpeg"
-                    style="width:90%;border-radius:25px;">
+                <img src="{{ asset('assets/images/about/mission.png') }}"
+                    style="width:100%;border-radius:25px;">
             </div>
         </div>
     </div>
@@ -61,85 +64,50 @@
     </div>
 
 
-    {{-- Featured Collection --}}
-
+   {{-- Fearured Collection --}}
     <div class="featured-section">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h2 class="fw-bold">Featured Collection</h2>
-                <a href="{{ route('shop') }}" class="view-all-btn">
-                    View All →
-                </a>
-            </div>
+    <div class="container">
 
-            <div class="row justify-content-center">
-
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card">
-                        <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg" class="card-img-top">
-                        <div class="card-body text-center">
-                            <h5>Decor Craft Set</h5>
-                            <p>₹850</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card">
-                        <img src="https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg" class="card-img-top">
-                        <div class="card-body text-center">
-                            <h5>Art Box</h5>
-                            <p>₹1200</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card">
-                        <img src="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg" class="card-img-top">
-                        <div class="card-body text-center">
-                            <h5>Craft Basket</h5>
-                            <p>₹1500</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="fw-bold">Featured Collection</h2>
+            <a href="{{ route('shop') }}" class="view-all-btn">
+                View All →
+            </a>
         </div>
 
+        <div class="row justify-content-center">
+
+            @foreach($featuredProducts as $product)
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card product-card h-100">
+
+                        <img src="{{ asset($product['image']) }}"
+                             class="card-img-top"
+                             alt="{{ $product['name'] }}">
+
+                        <div class="card-body text-center">
+                            <h5 class="mb-1">{{ $product['name'] }}</h5>
+                            <p class="text-muted mb-1">{{ $product['category'] }}</p>
+                            <p class="fw-bold">₹{{ $product['price'] }}</p>
+
+                            <a href="{{ route('product.detail', $product['slug']) }}"
+                               class="stretched-link"></a>
+                        </div>
+
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
     </div>
+</div>
+
 
     {{-- Story Section --}}
-    {{-- <div class="story-wrapper">
-        <div class="container">
-
-            <div class="row align-items-center">
-
-                <div class="col-md-6">
-                    <img src="https://images.pexels.com/photos/2736834/pexels-photo-2736834.jpeg" class="story-img">
-                </div>
-
-                <div class="col-md-6 text-white">
-                    <h2>Preserving Art & Creativity</h2>
-
-                    <p>
-                        Crazy Crafts supports creativity and passion.
-                        Our craft materials help creators bring imagination to life 🎨
-                    </p>
-
-                    <button class="btn btn-light px-4 py-2 rounded-pill">
-                        Read Our Story
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div> --}}
+    
 
 
-    <div class="container story-section mt-5">
+    <div class="container our-story mt-5">
         <div class="row align-items-center">
 
             <div class="col-md-6">
@@ -150,11 +118,17 @@
             <div class="col-md-6">
                 <h2>Preserving Art & Creativity</h2>
                 <p>
-                    Crazy Crafts supports creativity and passion.
-                    Our products help creators bring imagination to life 🎨
+                    <strong>Crafted by Heart</strong> celebrates the beauty of handmade artistry and timeless creativity.
+                    <br>
+                       Every creation is thoughtfully designed to preserve emotions, traditions, and meaningful moments.
+                    We empower artisans and creators to transform imagination into soulful masterpieces,
+                    crafted with love, authenticity, and the warmth of human touch 🤍
                 </p>
+                <a href="{{ route('our.story') }}" class="btn btn-light">
+                    Read Our Story
+                </a>
 
-                <button class="btn btn-light">Read Our Story</button>
+
             </div>
 
         </div>

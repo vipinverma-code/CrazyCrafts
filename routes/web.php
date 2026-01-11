@@ -3,10 +3,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('home');   // 👈 home.blade.php page load hoga
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+
 
 // SHOP
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
@@ -31,6 +34,13 @@ Route::post('/place-order', [CheckoutController::class, 'placeOrder'])->name('or
 Route::get('/order-success', function () {
     return view('order-success');
 })->name('order.success');
+// Our story page route
+Route::get('/our-story', function () {
+    return view('our-story');
+})->name('our.story');
+// CONTACT US
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 
 
@@ -39,6 +49,3 @@ Route::get('/order-success', function () {
 
 
 
-// Route::get('/shop', function () {
-//     return "Shop Page Coming Soon";
-// });
